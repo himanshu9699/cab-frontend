@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [cabType, setcabType] = useState('');
-  const [email, setemail] = useState('');
-  const [source, setSource] = useState('');
-  const [destination, setDestination] = useState('');
-  const [result, setResult] = useState({});
+  var [cabType, setcabType] = useState('');
+  var [email, setemail] = useState('');
+  var [source, setSource] = useState('');
+  var [destination, setDestination] = useState('');
+  var [result, setResult] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://cab-backend-1.onrender.com/calculate', {
+      var response = await axios.post('http://localhost:5000/calculate', {
         source,
         destination,
         cabType,
