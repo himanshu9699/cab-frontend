@@ -11,7 +11,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      var response = await axios.post('http://localhost:5000/calculate', {
+      var response = await axios.post('https://cab-backend-1.onrender.com/calculate', {
         source,
         destination,
         cabType,
