@@ -10,7 +10,7 @@
 2.) Upon submission, an automatic email is sent to the user whose email ID was provided in the input field, ensuring seamless communication.
 
 ### Booking History:
-1.) Access and manage previously booked cab data fetched from the database, ensuring efficient tracking and organization.
+1.) Access previously booked cab data fetched from the database, ensuring efficient tracking and organization.
 
 ### Cab Price Management:
 
