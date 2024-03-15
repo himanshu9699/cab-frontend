@@ -41,7 +41,7 @@ function Component1() {
       }
       setEmailError('');
       try {
-        var response = await axios.post('https://cab-backend-1.onrender.com/calculate', {
+        var response = await axios.post('http://localhost:5000/calculate', {
           source,
           destination,
           cabType,
@@ -49,11 +49,12 @@ function Component1() {
         }
         );
         setResult(response.data);
+        var responseData = response.data;
+        console.log(responseData.shortestTime)
         // sendEmail();
-        if (!result.shortestTime) {
+        if (responseData.shortestTime) {
            console.log("himanshu")
           sendEmail(); 
-          // Call sendEmail() only when shortestTime is available
        }
           setcabType('');
           setEmail('');
