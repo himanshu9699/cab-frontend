@@ -8,7 +8,7 @@ const Component3 = () => {
 
   useEffect(() => {
     // Fetch data from backend
-    axios.get('https://cab-backend-1.onrender.com/bookings')
+    axios.get('https://cab-backend-production.up.railway.app/bookings')
       .then(response => {
         setBookings(response.data); // Assuming the data is an array of objects
       })

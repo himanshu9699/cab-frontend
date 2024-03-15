@@ -7,7 +7,7 @@ function CabPrices() {
   
   useEffect(() => {
     // Fetch initial cab prices from the server
-    axios.get('https://cab-backend-1.onrender.com/cab-prices')
+    axios.get('https://cab-backend-production.up.railway.app/cab-prices')
       .then(response => {
         setCabPrices(response.data);
       })
@@ -27,11 +27,11 @@ function CabPrices() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Send new prices to the server to update
-    axios.post('https://cab-backend-1.onrender.com/update-cab-prices', newPrices)
+    axios.post('https://cab-backend-production.up.railway.app/update-cab-prices', newPrices)
       .then(() => {
         // Reset newPrices state and fetch updated cab prices
         setNewPrices({});
-        return axios.get('https://cab-backend-1.onrender.com/cab-prices');
+        return axios.get('https://cab-backend-production.up.railway.app/cab-prices');
       })
       .then(response => {
         setCabPrices(response.data);

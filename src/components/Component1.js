@@ -41,7 +41,7 @@ function Component1() {
       }
       setEmailError('');
       try {
-        var response = await axios.post('https://cab-backend-1.onrender.com/calculate', {
+        var response = await axios.post('https://cab-backend-production.up.railway.app/calculate', {
           source,
           destination,
           cabType,
