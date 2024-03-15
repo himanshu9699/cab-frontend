@@ -5,3 +5,29 @@
 td, th {
   padding: 10px; /* Adjust as needed */
 }
+.table-container {
+  max-height: 550px; /* Adjust as needed */
+  overflow-y: auto;
+}
+
+.scrollable-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.modern-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.modern-table th,
+.modern-table td {
+  padding: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  text-align: left;
+  min-width: 150px; /* Adjust for square cells */
+}
+
+.spacer-row {
+  height: 20px;
+}

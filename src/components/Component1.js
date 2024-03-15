@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import axios from 'axios';
+// import emailjs from '@emailjs/browser';
+import emailjs from 'emailjs-com';
+
 
 function Component1() {
     var [cabType, setcabType] = useState('');
@@ -7,43 +10,99 @@ function Component1() {
     var [source, setSource] = useState('');
     var [destination, setDestination] = useState('');
     var [result, setResult] = useState({});
+    var [emailError, setEmailError] = useState('');
+    const form = useRef();
+
+
+    const sendEmail = (e) => {
+      // e.preventDefault();
+  
+      emailjs
+        .sendForm('service_64sin2j', 'template_ut9p447', form.current,'SqbI-GnOyMnrcg2il')
+        .then((result) => {
+          console.log('Email sent successfully:', result.text);
+      }, (error) => {
+          console.error('Failed to send email:', error.text);
+      });
+    };
+
   
     const handleSubmit = async (e) => {
+      console.log("yes");
       e.preventDefault();
+      if (!email || !validateEmail(email)) {
+        setEmailError('Please enter a valid email address');
+        return;
+      }
+      setEmailError('');
       try {
         var response = await axios.post('https://cab-backend-1.onrender.com/calculate', {
           source,
           destination,
           cabType,
           email
-        });
+        }
+        );
         setResult(response.data);
+        if (!result.shortestTime) {
+          sendEmail(); // Call sendEmail() only when shortestTime is available
+      }
       } catch (error) {
         console.error('Error:', error);
       }
     };
+    const validateEmail = (email) => {
+      const re = /\S+@\S+\.\S+/;
+      return re.test(email);
+  };
   
     return (
       <div>
           {/* <Sidebar/> */}
         <h1>Cab System</h1>
-        <form onSubmit={handleSubmit}>
+        {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
+        <form ref={form} onSubmit={handleSubmit}>
         <label>
             Email:
-            <input type="text" value={email} onChange={(e) => setemail(e.target.value)} />
+            <input type="email" value={email} onChange={(e) => setemail(e.target.value)} />
           </label>
+          <br></br>
           <label>
-            CabType:
-            <input type="text" value={cabType} onChange={(e) => setcabType(e.target.value)} />
+            Cab Number:
+            <select value={cabType} onChange={(e) => setcabType(e.target.value)}>
+                        <option value="">Select Cab Number</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+            </select>
           </label>
+          <br></br>
           <label>
             Source:
-            <input type="text" value={source} onChange={(e) => setSource(e.target.value)} />
+            <select value={source} onChange={(e) => setSource(e.target.value)}>
+                        <option value="">Select Source</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                    </select>
           </label>
           <br />
           <label>
             Destination:
-            <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} />
+            <select value={destination} onChange={(e) => setDestination(e.target.value)}>
+                        <option value="">Select Destination</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                    </select>
           </label>
           <br />
           <button type="submit">Calculate</button>
@@ -62,10 +121,12 @@ function Component1() {
             <p>Shortest Time: {result.shortestTime} minutes</p>
             <p>Estimated Cost: ${result.estimatedCost}</p>
           </div>
-        ) }
+          ) 
+          // sendEmail()
+          }
         {
           result.a &&
-              <p>cab {cabType} already booked</p>
+              <p>Cab already booked</p>
         }
         {/* {result.a ? <p>Cabs already booked</p> : null} */}
       </div>

@@ -19,7 +19,11 @@ const Component3 = () => {
 
   return (
     <div>
-      <h1>Booking History</h1>
+        <h1>Booking History</h1>
+        <hr></hr>
+        <br></br>
+      <div className="table-container">
+      <div className="scrollable-table">
       <table className="modern-table">
         <thead>
           <tr>
@@ -41,14 +45,16 @@ const Component3 = () => {
               <td>{booking.cab_type}</td>
               <td>{booking.source}</td>
               <td>{booking.destination}</td>
-              <td>{booking.booking_time}</td>
-              <td>{booking.booking_completed}</td>
+              <td>{new Date(booking.booking_time).toLocaleString()}</td>
+              <td>{new Date(booking.booking_completed).toLocaleString()}</td>
             </tr>
             {index !== bookings.length - 1 && <tr className="spacer-row"></tr>}
             </React.Fragment>
           ))}
         </tbody>
       </table>
+      </div>
+    </div>
     </div>
   );
 };
