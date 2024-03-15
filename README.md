@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# SpeedyCab Admin Portal
+## Overview:
+  SpeedyCab Admin Portal simplifies cab booking management with a user-friendly interface. It offers three primary features:
+## Features:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Dashboard:
 
-## Available Scripts
+1.) Easily create new cab booking orders by providing email, cab type, source, and destination details.
 
-In the project directory, you can run:
+2.) Upon submission, an automatic email is sent to the user whose email ID was provided in the input field, ensuring seamless communication.
 
-### `npm start`
+### Booking History:
+1.) Access and manage previously booked cab data fetched from the database, ensuring efficient tracking and organization.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Cab Price Management:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1.) Seamlessly adjust cab prices and instantly check current rates, providing flexibility in pricing strategies.
 
-### `npm test`
+## Technology Stack:
+• Frontend: React.js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+• Backend: Node.js, Express.js
 
-### `npm run build`
+• Database: MySQL
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+• Email Integration: Email.js
+## Deployment:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+• Node.js server deployed on Render for reliable backend operations.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+• React.js frontend deployed on Vercel for efficient user interactions.
 
-### `npm run eject`
+• MySQL database hosted on Clever Cloud for secure data storage.
+## Access:
+### Website:
+  [SpeedyCab](https://cab-frontend-seven.vercel.app/)
+### Repository:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  • Frontend: [SpeedyCab Frontend](https://github.com/himanshu9699/cab-frontend)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  • Backend:  [SpeedyCab Backend](https://github.com/himanshu9699/cab-backend)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Important Note:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For users utilizing the deployment server, please expect a brief delay of 30-40 seconds after clicking the calculate button for the first time. This delay is necessary for server initialization.
+##
+Explore and contribute to the SpeedyCab Admin Portal to enhance cab booking management. I welcome your feedback and contributions!
