@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Component1 from './Component1';
-import Component2 from './component2';
+// import Component2 from './component2';
 import Component3 from './Component3';
 import Component4 from './component4';
 
@@ -11,8 +11,8 @@ const Sidebar = () => {
     switch (selectedComponent) {
       case 'Component1':
         return <Component1 />;
-      case 'Component2':
-        return <Component2 />;
+      // case 'Component2':
+      //   return <Component2 />;
       case 'Component3':
         return <Component3 />;
       case 'Component4':
@@ -27,7 +27,7 @@ const Sidebar = () => {
       <div style={{ width: '200px', backgroundColor: '#333', color: '#fff' }}>
         <ul style={{ listStyleType: 'none', padding: 0 }}>
           <li onClick={() => setSelectedComponent('Component1')} style={{ cursor: 'pointer',padding:'20px' }}>Dashboard</li>
-          <li onClick={() => setSelectedComponent('Component2')} style={{ cursor: 'pointer' ,padding:'20px'}}>Create Ride</li>
+          {/* <li onClick={() => setSelectedComponent('Component2')} style={{ cursor: 'pointer' ,padding:'20px'}}>Create Ride</li> */}
           <li onClick={() => setSelectedComponent('Component3')} style={{ cursor: 'pointer' ,padding:'20px'}}>History Bookings</li>
           <li onClick={() => setSelectedComponent('Component4')} style={{ cursor: 'pointer',padding:'20px' }}>Change price of cabs</li>
         </ul>

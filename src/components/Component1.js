@@ -6,22 +6,27 @@ import emailjs from 'emailjs-com';
 
 function Component1() {
     var [cabType, setcabType] = useState('');
-    var [email, setemail] = useState('');
+    var [email, setEmail] = useState('');
     var [source, setSource] = useState('');
     var [destination, setDestination] = useState('');
     var [result, setResult] = useState({});
     var [emailError, setEmailError] = useState('');
-    const form = useRef();
+    var form = useRef();
 
 
     const sendEmail = (e) => {
+      console.log('email');
       // e.preventDefault();
+      var formData = new FormData(form.current); // Changed from 'form' to 'form.current'
+      var userEmail=formData.get('email');
+      console.log(userEmail); // Add the email address to the form data
   
       emailjs
         .sendForm('service_64sin2j', 'template_ut9p447', form.current,'SqbI-GnOyMnrcg2il')
         .then((result) => {
           console.log('Email sent successfully:', result.text);
       }, (error) => {
+          // console.log(form.email);
           console.error('Failed to send email:', error.text);
       });
     };
@@ -44,9 +49,16 @@ function Component1() {
         }
         );
         setResult(response.data);
+        // sendEmail();
         if (!result.shortestTime) {
-          sendEmail(); // Call sendEmail() only when shortestTime is available
-      }
+           console.log("himanshu")
+          sendEmail(); 
+          // Call sendEmail() only when shortestTime is available
+       }
+          setcabType('');
+          setEmail('');
+          setSource('');
+          setDestination('');
       } catch (error) {
         console.error('Error:', error);
       }
@@ -64,7 +76,7 @@ function Component1() {
         <form ref={form} onSubmit={handleSubmit}>
         <label>
             Email:
-            <input type="email" value={email} onChange={(e) => setemail(e.target.value)} />
+            <input type="email" value={email} name="email" onChange={(e) => setEmail(e.target.value)} />
           </label>
           <br></br>
           <label>
