@@ -26,7 +26,7 @@
 • Email Integration: Email.js
 ## Deployment:
 
-• Node.js server deployed on Render for reliable backend operations.
+• Node.js server deployed on Railway for reliable backend operations.
 
 • React.js frontend deployed on Vercel for efficient user interactions.
 
